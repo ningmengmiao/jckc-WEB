@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bptop.jckc.dao.KcUserDao">
+
+    <resultMap type="cn.bptop.jckc.entity.KcUser" id="KcUserMap">
+        <result property="userId" column="user_id" jdbcType="INTEGER"/>
+        <result property="uFn" column="u_FN" jdbcType="VARCHAR"/>
+        <result property="uDdid" column="u_ddId" jdbcType="VARCHAR"/>
+        <result property="uName" column="u_name" jdbcType="VARCHAR"/>
+        <result property="uMobile" column="u_mobile" jdbcType="VARCHAR"/>
+        <result property="uEmail" column="u_email" jdbcType="VARCHAR"/>
+        <result property="uStartWork" column="u_start_work" jdbcType="VARCHAR"/>
+        <result property="uAvatar" column="u_avatar" jdbcType="VARCHAR"/>
+        <result property="uNote" column="u_note" jdbcType="VARCHAR"/>
+        <result property="uExtattr1" column="u_extattr1" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="KcUserMap">
+        select
+          user_id, u_FN, u_ddId, u_name, u_mobile, u_email, u_start_work, u_avatar, u_note, u_extattr1
+        from jckc.kc_user
+        where user_id = #{userId}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="KcUserMap">
+        select
+          user_id, u_FN, u_ddId, u_name, u_mobile, u_email, u_start_work, u_avatar, u_note, u_extattr1
+        from jckc.kc_user
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="KcUserMap">
+        select
+          user_id, u_FN, u_ddId, u_name, u_mobile, u_email, u_start_work, u_avatar, u_note, u_extattr1
+        from jckc.kc_user
+        <where>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="uFn != null and uFn != ''">
+                and u_FN = #{uFn}
+            </if>
+            <if test="uDdid != null and uDdid != ''">
+                and u_ddId = #{uDdid}
+            </if>
+            <if test="uName != null and uName != ''">
+                and u_name = #{uName}
+            </if>
+            <if test="uMobile != null and uMobile != ''">
+                and u_mobile = #{uMobile}
+            </if>
+            <if test="uEmail != null and uEmail != ''">
+                and u_email = #{uEmail}
+            </if>
+            <if test="uStartWork != null and uStartWork != ''">
+                and u_start_work = #{uStartWork}
+            </if>
+            <if test="uAvatar != null and uAvatar != ''">
+                and u_avatar = #{uAvatar}
+            </if>
+            <if test="uNote != null and uNote != ''">
+                and u_note = #{uNote}
+            </if>
+            <if test="uExtattr1 != null and uExtattr1 != ''">
+                and u_extattr1 = #{uExtattr1}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="userId" useGeneratedKeys="true">
+        insert into jckc.kc_user(u_FN, u_ddId, u_name, u_mobile, u_email, u_start_work, u_avatar, u_note, u_extattr1)
+        values (#{uFn}, #{uDdid}, #{uName}, #{uMobile}, #{uEmail}, #{uStartWork}, #{uAvatar}, #{uNote}, #{uExtattr1})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update jckc.kc_user
+        <set>
+            <if test="uFn != null and uFn != ''">
+                u_FN = #{uFn},
+            </if>
+            <if test="uDdid != null and uDdid != ''">
+                u_ddId = #{uDdid},
+            </if>
+            <if test="uName != null and uName != ''">
+                u_name = #{uName},
+            </if>
+            <if test="uMobile != null and uMobile != ''">
+                u_mobile = #{uMobile},
+            </if>
+            <if test="uEmail != null and uEmail != ''">
+                u_email = #{uEmail},
+            </if>
+            <if test="uStartWork != null and uStartWork != ''">
+                u_start_work = #{uStartWork},
+            </if>
+            <if test="uAvatar != null and uAvatar != ''">
+                u_avatar = #{uAvatar},
+            </if>
+            <if test="uNote != null and uNote != ''">
+                u_note = #{uNote},
+            </if>
+            <if test="uExtattr1 != null and uExtattr1 != ''">
+                u_extattr1 = #{uExtattr1},
+            </if>
+        </set>
+        where user_id = #{userId}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from jckc.kc_user where user_id = #{userId}
+    </delete>
+
+</mapper>

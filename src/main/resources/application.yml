@@ -1,0 +1,19 @@
+spring:
+  profiles:
+    active: dev
+    resources:
+      static-locations:
+        file: C:/file/
+
+
+
+
+
+logging:
+  level:
+    cn.bptop.jckc.dao: debug
+
+
+
+
+

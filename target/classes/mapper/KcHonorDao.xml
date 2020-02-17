@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bptop.jckc.dao.KcHonorDao">
+
+    <resultMap type="cn.bptop.jckc.entity.KcHonor" id="KcHonorMap">
+        <result property="hHonorId" column="h_honor_id" jdbcType="INTEGER"/>
+        <result property="hHonorName" column="h_honor_name" jdbcType="VARCHAR"/>
+        <result property="hHonorLevel" column="h_honor_level" jdbcType="VARCHAR"/>
+        <result property="hHonorType" column="h_honor_type" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="KcHonorMap">
+        select
+          h_honor_id, h_honor_name, h_honor_level, h_honor_type
+        from jckc.kc_honor
+        where h_honor_id = #{hHonorId}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="KcHonorMap">
+        select
+          h_honor_id, h_honor_name, h_honor_level, h_honor_type
+        from jckc.kc_honor
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="KcHonorMap">
+        select
+          h_honor_id, h_honor_name, h_honor_level, h_honor_type
+        from jckc.kc_honor
+        <where>
+            <if test="hHonorId != null">
+                and h_honor_id = #{hHonorId}
+            </if>
+            <if test="hHonorName != null and hHonorName != ''">
+                and h_honor_name = #{hHonorName}
+            </if>
+            <if test="hHonorLevel != null and hHonorLevel != ''">
+                and h_honor_level = #{hHonorLevel}
+            </if>
+            <if test="hHonorType != null and hHonorType != ''">
+                and h_honor_type = #{hHonorType}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="hHonorId" useGeneratedKeys="true">
+        insert into jckc.kc_honor(h_honor_name, h_honor_level, h_honor_type)
+        values (#{hHonorName}, #{hHonorLevel}, #{hHonorType})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update jckc.kc_honor
+        <set>
+            <if test="hHonorName != null and hHonorName != ''">
+                h_honor_name = #{hHonorName},
+            </if>
+            <if test="hHonorLevel != null and hHonorLevel != ''">
+                h_honor_level = #{hHonorLevel},
+            </if>
+            <if test="hHonorType != null and hHonorType != ''">
+                h_honor_type = #{hHonorType},
+            </if>
+        </set>
+        where h_honor_id = #{hHonorId}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from jckc.kc_honor where h_honor_id = #{hHonorId}
+    </delete>
+
+</mapper>
