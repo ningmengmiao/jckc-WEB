@@ -1,231 +1,284 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.bptop.jckc.dao.KcPersonalInfoDao">
-
-    <resultMap type="cn.bptop.jckc.entity.KcPersonalInfo" id="KcPersonalInfoMap">
-        <result property="piId" column="pi_id" jdbcType="INTEGER"/>
-        <result property="uUserId" column="u_user_id" jdbcType="INTEGER"/>
-        <result property="piBirthday" column="pi_birthday" jdbcType="VARCHAR"/>
-        <result property="piSex" column="pi_sex" jdbcType="VARCHAR"/>
-        <result property="piNation" column="pi_nation" jdbcType="VARCHAR"/>
-        <result property="piPoliticsStatus" column="pi_politics_status" jdbcType="VARCHAR"/>
-        <result property="piBirthplace" column="pi_birthplace" jdbcType="VARCHAR"/>
-        <result property="piIsagricultural" column="pi_isAgricultural" jdbcType="VARCHAR"/>
-        <result property="piAddress" column="pi_address" jdbcType="VARCHAR"/>
-        <result property="piContacts" column="pi_contacts" jdbcType="VARCHAR"/>
-        <result property="piIdCardNo" column="pi_ID_card_No" jdbcType="VARCHAR"/>
-        <result property="piSpecialty" column="pi_specialty" jdbcType="VARCHAR"/>
-        <result property="piFristEducation" column="pi_frist_education" jdbcType="VARCHAR"/>
-        <result property="piOtherEducation" column="pi_other_education" jdbcType="VARCHAR"/>
-        <result property="piSchooltag" column="pi_schoolTag" jdbcType="VARCHAR"/>
-        <result property="piGraduationDate" column="pi_graduation_date" jdbcType="VARCHAR"/>
-        <result property="piWorkType" column="pi_work_type" jdbcType="VARCHAR"/>
-        <result property="piClothesSize" column="pi_clothes_size" jdbcType="VARCHAR"/>
-        <result property="piShoesSize" column="pi_shoes_size" jdbcType="VARCHAR"/>
-        <result property="piPrentice" column="pi_prentice" jdbcType="VARCHAR"/>
-        <result property="piCredentials" column="pi_credentials" jdbcType="VARCHAR"/>
-        <result property="piHonor" column="pi_honor" jdbcType="VARCHAR"/>
-        <result property="piPaper" column="pi_paper" jdbcType="VARCHAR"/>
-        <result property="piExtattr1" column="pi_extattr1" jdbcType="VARCHAR"/>
-        <result property="piExtattr2" column="pi_extattr2" jdbcType="VARCHAR"/>
-        <result property="piExtattr3" column="pi_extattr3" jdbcType="VARCHAR"/>
-    </resultMap>
-
-    <!--查询单个-->
-    <select id="queryById" resultMap="KcPersonalInfoMap">
-        select
-          pi_id, u_user_id, pi_birthday, pi_sex, pi_nation, pi_politics_status, pi_birthplace, pi_isAgricultural, pi_address, pi_contacts, pi_ID_card_No, pi_specialty, pi_frist_education, pi_other_education, pi_schoolTag, pi_graduation_date, pi_work_type, pi_clothes_size, pi_shoes_size, pi_prentice, pi_credentials, pi_honor, pi_paper, pi_extattr1, pi_extattr2, pi_extattr3
-        from jckc.kc_personal_info
-        where pi_id = #{piId}
-    </select>
-
-    <!--查询指定行数据-->
-    <select id="queryAllByLimit" resultMap="KcPersonalInfoMap">
-        select
-          pi_id, u_user_id, pi_birthday, pi_sex, pi_nation, pi_politics_status, pi_birthplace, pi_isAgricultural, pi_address, pi_contacts, pi_ID_card_No, pi_specialty, pi_frist_education, pi_other_education, pi_schoolTag, pi_graduation_date, pi_work_type, pi_clothes_size, pi_shoes_size, pi_prentice, pi_credentials, pi_honor, pi_paper, pi_extattr1, pi_extattr2, pi_extattr3
-        from jckc.kc_personal_info
-        limit #{offset}, #{limit}
-    </select>
-
-    <!--通过实体作为筛选条件查询-->
-    <select id="queryAll" resultMap="KcPersonalInfoMap">
-        select
-          pi_id, u_user_id, pi_birthday, pi_sex, pi_nation, pi_politics_status, pi_birthplace, pi_isAgricultural, pi_address, pi_contacts, pi_ID_card_No, pi_specialty, pi_frist_education, pi_other_education, pi_schoolTag, pi_graduation_date, pi_work_type, pi_clothes_size, pi_shoes_size, pi_prentice, pi_credentials, pi_honor, pi_paper, pi_extattr1, pi_extattr2, pi_extattr3
-        from jckc.kc_personal_info
-        <where>
-            <if test="piId != null">
-                and pi_id = #{piId}
-            </if>
-            <if test="uUserId != null">
-                and u_user_id = #{uUserId}
-            </if>
-            <if test="piBirthday != null and piBirthday != ''">
-                and pi_birthday = #{piBirthday}
-            </if>
-            <if test="piSex != null and piSex != ''">
-                and pi_sex = #{piSex}
-            </if>
-            <if test="piNation != null and piNation != ''">
-                and pi_nation = #{piNation}
-            </if>
-            <if test="piPoliticsStatus != null and piPoliticsStatus != ''">
-                and pi_politics_status = #{piPoliticsStatus}
-            </if>
-            <if test="piBirthplace != null and piBirthplace != ''">
-                and pi_birthplace = #{piBirthplace}
-            </if>
-            <if test="piIsagricultural != null and piIsagricultural != ''">
-                and pi_isAgricultural = #{piIsagricultural}
-            </if>
-            <if test="piAddress != null and piAddress != ''">
-                and pi_address = #{piAddress}
-            </if>
-            <if test="piContacts != null and piContacts != ''">
-                and pi_contacts = #{piContacts}
-            </if>
-            <if test="piIdCardNo != null and piIdCardNo != ''">
-                and pi_ID_card_No = #{piIdCardNo}
-            </if>
-            <if test="piSpecialty != null and piSpecialty != ''">
-                and pi_specialty = #{piSpecialty}
-            </if>
-            <if test="piFristEducation != null and piFristEducation != ''">
-                and pi_frist_education = #{piFristEducation}
-            </if>
-            <if test="piOtherEducation != null and piOtherEducation != ''">
-                and pi_other_education = #{piOtherEducation}
-            </if>
-            <if test="piSchooltag != null and piSchooltag != ''">
-                and pi_schoolTag = #{piSchooltag}
-            </if>
-            <if test="piGraduationDate != null and piGraduationDate != ''">
-                and pi_graduation_date = #{piGraduationDate}
-            </if>
-            <if test="piWorkType != null and piWorkType != ''">
-                and pi_work_type = #{piWorkType}
-            </if>
-            <if test="piClothesSize != null and piClothesSize != ''">
-                and pi_clothes_size = #{piClothesSize}
-            </if>
-            <if test="piShoesSize != null and piShoesSize != ''">
-                and pi_shoes_size = #{piShoesSize}
-            </if>
-            <if test="piPrentice != null and piPrentice != ''">
-                and pi_prentice = #{piPrentice}
-            </if>
-            <if test="piCredentials != null and piCredentials != ''">
-                and pi_credentials = #{piCredentials}
-            </if>
-            <if test="piHonor != null and piHonor != ''">
-                and pi_honor = #{piHonor}
-            </if>
-            <if test="piPaper != null and piPaper != ''">
-                and pi_paper = #{piPaper}
-            </if>
-            <if test="piExtattr1 != null and piExtattr1 != ''">
-                and pi_extattr1 = #{piExtattr1}
-            </if>
-            <if test="piExtattr2 != null and piExtattr2 != ''">
-                and pi_extattr2 = #{piExtattr2}
-            </if>
-            <if test="piExtattr3 != null and piExtattr3 != ''">
-                and pi_extattr3 = #{piExtattr3}
-            </if>
-        </where>
-    </select>
-
-    <!--新增所有列-->
-    <insert id="insert" keyProperty="piId" useGeneratedKeys="true">
-        insert into jckc.kc_personal_info(u_user_id, pi_birthday, pi_sex, pi_nation, pi_politics_status, pi_birthplace, pi_isAgricultural, pi_address, pi_contacts, pi_ID_card_No, pi_specialty, pi_frist_education, pi_other_education, pi_schoolTag, pi_graduation_date, pi_work_type, pi_clothes_size, pi_shoes_size, pi_prentice, pi_credentials, pi_honor, pi_paper, pi_extattr1, pi_extattr2, pi_extattr3)
-        values (#{uUserId}, #{piBirthday}, #{piSex}, #{piNation}, #{piPoliticsStatus}, #{piBirthplace}, #{piIsagricultural}, #{piAddress}, #{piContacts}, #{piIdCardNo}, #{piSpecialty}, #{piFristEducation}, #{piOtherEducation}, #{piSchooltag}, #{piGraduationDate}, #{piWorkType}, #{piClothesSize}, #{piShoesSize}, #{piPrentice}, #{piCredentials}, #{piHonor}, #{piPaper}, #{piExtattr1}, #{piExtattr2}, #{piExtattr3})
-    </insert>
-
-    <!--通过主键修改数据-->
-    <update id="update">
-        update jckc.kc_personal_info
-        <set>
-            <if test="uUserId != null">
-                u_user_id = #{uUserId},
-            </if>
-            <if test="piBirthday != null and piBirthday != ''">
-                pi_birthday = #{piBirthday},
-            </if>
-            <if test="piSex != null and piSex != ''">
-                pi_sex = #{piSex},
-            </if>
-            <if test="piNation != null and piNation != ''">
-                pi_nation = #{piNation},
-            </if>
-            <if test="piPoliticsStatus != null and piPoliticsStatus != ''">
-                pi_politics_status = #{piPoliticsStatus},
-            </if>
-            <if test="piBirthplace != null and piBirthplace != ''">
-                pi_birthplace = #{piBirthplace},
-            </if>
-            <if test="piIsagricultural != null and piIsagricultural != ''">
-                pi_isAgricultural = #{piIsagricultural},
-            </if>
-            <if test="piAddress != null and piAddress != ''">
-                pi_address = #{piAddress},
-            </if>
-            <if test="piContacts != null and piContacts != ''">
-                pi_contacts = #{piContacts},
-            </if>
-            <if test="piIdCardNo != null and piIdCardNo != ''">
-                pi_ID_card_No = #{piIdCardNo},
-            </if>
-            <if test="piSpecialty != null and piSpecialty != ''">
-                pi_specialty = #{piSpecialty},
-            </if>
-            <if test="piFristEducation != null and piFristEducation != ''">
-                pi_frist_education = #{piFristEducation},
-            </if>
-            <if test="piOtherEducation != null and piOtherEducation != ''">
-                pi_other_education = #{piOtherEducation},
-            </if>
-            <if test="piSchooltag != null and piSchooltag != ''">
-                pi_schoolTag = #{piSchooltag},
-            </if>
-            <if test="piGraduationDate != null and piGraduationDate != ''">
-                pi_graduation_date = #{piGraduationDate},
-            </if>
-            <if test="piWorkType != null and piWorkType != ''">
-                pi_work_type = #{piWorkType},
-            </if>
-            <if test="piClothesSize != null and piClothesSize != ''">
-                pi_clothes_size = #{piClothesSize},
-            </if>
-            <if test="piShoesSize != null and piShoesSize != ''">
-                pi_shoes_size = #{piShoesSize},
-            </if>
-            <if test="piPrentice != null and piPrentice != ''">
-                pi_prentice = #{piPrentice},
-            </if>
-            <if test="piCredentials != null and piCredentials != ''">
-                pi_credentials = #{piCredentials},
-            </if>
-            <if test="piHonor != null and piHonor != ''">
-                pi_honor = #{piHonor},
-            </if>
-            <if test="piPaper != null and piPaper != ''">
-                pi_paper = #{piPaper},
-            </if>
-            <if test="piExtattr1 != null and piExtattr1 != ''">
-                pi_extattr1 = #{piExtattr1},
-            </if>
-            <if test="piExtattr2 != null and piExtattr2 != ''">
-                pi_extattr2 = #{piExtattr2},
-            </if>
-            <if test="piExtattr3 != null and piExtattr3 != ''">
-                pi_extattr3 = #{piExtattr3},
-            </if>
-        </set>
-        where pi_id = #{piId}
-    </update>
-
-    <!--通过主键删除-->
-    <delete id="deleteById">
-        delete from jckc.kc_personal_info where pi_id = #{piId}
-    </delete>
-
+<mapper namespace = "cn.bptop.jckc.dao.KcPersonalInfoDao">
+	<resultMap type = "cn.bptop.jckc.entity.KcPersonalInfo" id = "KcPersonalInfoMap">
+		<result property = "piId" column = "pi_id" jdbcType = "INTEGER"/>
+		<result property = "uUserId" column = "u_user_id" jdbcType = "INTEGER"/>
+		<result property = "piBirthday" column = "pi_birthday" jdbcType = "VARCHAR"/>
+		<result property = "piSex" column = "pi_sex" jdbcType = "VARCHAR"/>
+		<result property = "piNation" column = "pi_nation" jdbcType = "VARCHAR"/>
+		<result property = "piPoliticsStatus" column = "pi_politics_status" jdbcType = "VARCHAR"/>
+		<result property = "piBirthplace" column = "pi_birthplace" jdbcType = "VARCHAR"/>
+		<result property = "piIsagricultural" column = "pi_isAgricultural" jdbcType = "VARCHAR"/>
+		<result property = "piAddress" column = "pi_address" jdbcType = "VARCHAR"/>
+		<result property = "piContacts" column = "pi_contacts" jdbcType = "VARCHAR"/>
+		<result property = "piIdCardNo" column = "pi_ID_card_No" jdbcType = "VARCHAR"/>
+		<result property = "piSpecialty" column = "pi_specialty" jdbcType = "VARCHAR"/>
+		<result property = "piFristEducation" column = "pi_frist_education" jdbcType = "VARCHAR"/>
+		<result property = "piOtherEducation" column = "pi_other_education" jdbcType = "VARCHAR"/>
+		<result property = "piSchooltag" column = "pi_schoolTag" jdbcType = "VARCHAR"/>
+		<result property = "piGraduationDate" column = "pi_graduation_date" jdbcType = "VARCHAR"/>
+		<result property = "piWorkType" column = "pi_work_type" jdbcType = "VARCHAR"/>
+		<result property = "piClothesSize" column = "pi_clothes_size" jdbcType = "VARCHAR"/>
+		<result property = "piShoesSize" column = "pi_shoes_size" jdbcType = "VARCHAR"/>
+		<result property = "piPrentice" column = "pi_prentice" jdbcType = "VARCHAR"/>
+		<result property = "piCredentials" column = "pi_credentials" jdbcType = "VARCHAR"/>
+		<result property = "piHonor" column = "pi_honor" jdbcType = "VARCHAR"/>
+		<result property = "piPaper" column = "pi_paper" jdbcType = "VARCHAR"/>
+		<result property = "piExtattr1" column = "pi_extattr1" jdbcType = "VARCHAR"/>
+		<result property = "piExtattr2" column = "pi_extattr2" jdbcType = "VARCHAR"/>
+		<result property = "piExtattr3" column = "pi_extattr3" jdbcType = "VARCHAR"/>
+	</resultMap>
+	<!--查询单个-->
+	<select id = "queryById" resultMap = "KcPersonalInfoMap">
+		select pi_id,
+		       u_user_id,
+		       pi_birthday,
+		       pi_sex,
+		       pi_nation,
+		       pi_politics_status,
+		       pi_birthplace,
+		       pi_isAgricultural,
+		       pi_address,
+		       pi_contacts,
+		       pi_ID_card_No,
+		       pi_specialty,
+		       pi_frist_education,
+		       pi_other_education,
+		       pi_schoolTag,
+		       pi_graduation_date,
+		       pi_work_type,
+		       pi_clothes_size,
+		       pi_shoes_size,
+		       pi_prentice,
+		       pi_credentials,
+		       pi_honor,
+		       pi_paper,
+		       pi_extattr1,
+		       pi_extattr2,
+		       pi_extattr3
+		from jckc.kc_personal_info
+		where pi_id = #{piId}
+	</select>
+	<!--查询指定行数据-->
+	<select id = "queryAllByLimit" resultMap = "KcPersonalInfoMap">
+		select pi_id,
+		       u_user_id,
+		       pi_birthday,
+		       pi_sex,
+		       pi_nation,
+		       pi_politics_status,
+		       pi_birthplace,
+		       pi_isAgricultural,
+		       pi_address,
+		       pi_contacts,
+		       pi_ID_card_No,
+		       pi_specialty,
+		       pi_frist_education,
+		       pi_other_education,
+		       pi_schoolTag,
+		       pi_graduation_date,
+		       pi_work_type,
+		       pi_clothes_size,
+		       pi_shoes_size,
+		       pi_prentice,
+		       pi_credentials,
+		       pi_honor,
+		       pi_paper,
+		       pi_extattr1,
+		       pi_extattr2,
+		       pi_extattr3
+		from jckc.kc_personal_info
+		limit #{offset}, #{limit}
+	</select>
+	<!--通过实体作为筛选条件查询-->
+	<select id = "queryAll" resultMap = "KcPersonalInfoMap">
+		select
+		pi_id, u_user_id, pi_birthday, pi_sex, pi_nation, pi_politics_status, pi_birthplace, pi_isAgricultural,
+		pi_address, pi_contacts, pi_ID_card_No, pi_specialty, pi_frist_education, pi_other_education, pi_schoolTag,
+		pi_graduation_date, pi_work_type, pi_clothes_size, pi_shoes_size, pi_prentice, pi_credentials, pi_honor,
+		pi_paper, pi_extattr1, pi_extattr2, pi_extattr3
+		from jckc.kc_personal_info
+		<where>
+			<if test = "piId != null">
+				and pi_id = #{piId}
+			</if>
+			<if test = "uUserId != null">
+				and u_user_id = #{uUserId}
+			</if>
+			<if test = "piBirthday != null and piBirthday != ''">
+				and pi_birthday = #{piBirthday}
+			</if>
+			<if test = "piSex != null and piSex != ''">
+				and pi_sex = #{piSex}
+			</if>
+			<if test = "piNation != null and piNation != ''">
+				and pi_nation = #{piNation}
+			</if>
+			<if test = "piPoliticsStatus != null and piPoliticsStatus != ''">
+				and pi_politics_status = #{piPoliticsStatus}
+			</if>
+			<if test = "piBirthplace != null and piBirthplace != ''">
+				and pi_birthplace = #{piBirthplace}
+			</if>
+			<if test = "piIsagricultural != null and piIsagricultural != ''">
+				and pi_isAgricultural = #{piIsagricultural}
+			</if>
+			<if test = "piAddress != null and piAddress != ''">
+				and pi_address = #{piAddress}
+			</if>
+			<if test = "piContacts != null and piContacts != ''">
+				and pi_contacts = #{piContacts}
+			</if>
+			<if test = "piIdCardNo != null and piIdCardNo != ''">
+				and pi_ID_card_No = #{piIdCardNo}
+			</if>
+			<if test = "piSpecialty != null and piSpecialty != ''">
+				and pi_specialty = #{piSpecialty}
+			</if>
+			<if test = "piFristEducation != null and piFristEducation != ''">
+				and pi_frist_education = #{piFristEducation}
+			</if>
+			<if test = "piOtherEducation != null and piOtherEducation != ''">
+				and pi_other_education = #{piOtherEducation}
+			</if>
+			<if test = "piSchooltag != null and piSchooltag != ''">
+				and pi_schoolTag = #{piSchooltag}
+			</if>
+			<if test = "piGraduationDate != null and piGraduationDate != ''">
+				and pi_graduation_date = #{piGraduationDate}
+			</if>
+			<if test = "piWorkType != null and piWorkType != ''">
+				and pi_work_type = #{piWorkType}
+			</if>
+			<if test = "piClothesSize != null and piClothesSize != ''">
+				and pi_clothes_size = #{piClothesSize}
+			</if>
+			<if test = "piShoesSize != null and piShoesSize != ''">
+				and pi_shoes_size = #{piShoesSize}
+			</if>
+			<if test = "piPrentice != null and piPrentice != ''">
+				and pi_prentice = #{piPrentice}
+			</if>
+			<if test = "piCredentials != null and piCredentials != ''">
+				and pi_credentials = #{piCredentials}
+			</if>
+			<if test = "piHonor != null and piHonor != ''">
+				and pi_honor = #{piHonor}
+			</if>
+			<if test = "piPaper != null and piPaper != ''">
+				and pi_paper = #{piPaper}
+			</if>
+			<if test = "piExtattr1 != null and piExtattr1 != ''">
+				and pi_extattr1 = #{piExtattr1}
+			</if>
+			<if test = "piExtattr2 != null and piExtattr2 != ''">
+				and pi_extattr2 = #{piExtattr2}
+			</if>
+			<if test = "piExtattr3 != null and piExtattr3 != ''">
+				and pi_extattr3 = #{piExtattr3}
+			</if>
+		</where>
+	</select>
+	<!--新增所有列-->
+	<insert id = "insert" keyProperty = "piId" useGeneratedKeys = "true">
+		insert into jckc.kc_personal_info(u_user_id, pi_birthday, pi_sex, pi_nation, pi_politics_status, pi_birthplace,
+		                                  pi_isAgricultural, pi_address, pi_contacts, pi_ID_card_No, pi_specialty,
+		                                  pi_frist_education, pi_other_education, pi_schoolTag, pi_graduation_date,
+		                                  pi_work_type, pi_clothes_size, pi_shoes_size, pi_prentice, pi_credentials,
+		                                  pi_honor, pi_paper, pi_extattr1, pi_extattr2, pi_extattr3)
+		values (#{uUserId}, #{piBirthday}, #{piSex}, #{piNation}, #{piPoliticsStatus}, #{piBirthplace},
+		        #{piIsagricultural}, #{piAddress}, #{piContacts}, #{piIdCardNo}, #{piSpecialty}, #{piFristEducation},
+		        #{piOtherEducation}, #{piSchooltag}, #{piGraduationDate}, #{piWorkType}, #{piClothesSize},
+		        #{piShoesSize}, #{piPrentice}, #{piCredentials}, #{piHonor}, #{piPaper}, #{piExtattr1}, #{piExtattr2},
+		        #{piExtattr3})
+	</insert>
+	<!--通过主键修改数据-->
+	<update id = "update">
+		update jckc.kc_personal_info
+		<set>
+			<if test = "uUserId != null">
+				u_user_id = #{uUserId},
+			</if>
+			<if test = "piBirthday != null and piBirthday != ''">
+				pi_birthday = #{piBirthday},
+			</if>
+			<if test = "piSex != null and piSex != ''">
+				pi_sex = #{piSex},
+			</if>
+			<if test = "piNation != null and piNation != ''">
+				pi_nation = #{piNation},
+			</if>
+			<if test = "piPoliticsStatus != null and piPoliticsStatus != ''">
+				pi_politics_status = #{piPoliticsStatus},
+			</if>
+			<if test = "piBirthplace != null and piBirthplace != ''">
+				pi_birthplace = #{piBirthplace},
+			</if>
+			<if test = "piIsagricultural != null and piIsagricultural != ''">
+				pi_isAgricultural = #{piIsagricultural},
+			</if>
+			<if test = "piAddress != null and piAddress != ''">
+				pi_address = #{piAddress},
+			</if>
+			<if test = "piContacts != null and piContacts != ''">
+				pi_contacts = #{piContacts},
+			</if>
+			<if test = "piIdCardNo != null and piIdCardNo != ''">
+				pi_ID_card_No = #{piIdCardNo},
+			</if>
+			<if test = "piSpecialty != null and piSpecialty != ''">
+				pi_specialty = #{piSpecialty},
+			</if>
+			<if test = "piFristEducation != null and piFristEducation != ''">
+				pi_frist_education = #{piFristEducation},
+			</if>
+			<if test = "piOtherEducation != null and piOtherEducation != ''">
+				pi_other_education = #{piOtherEducation},
+			</if>
+			<if test = "piSchooltag != null and piSchooltag != ''">
+				pi_schoolTag = #{piSchooltag},
+			</if>
+			<if test = "piGraduationDate != null and piGraduationDate != ''">
+				pi_graduation_date = #{piGraduationDate},
+			</if>
+			<if test = "piWorkType != null and piWorkType != ''">
+				pi_work_type = #{piWorkType},
+			</if>
+			<if test = "piClothesSize != null and piClothesSize != ''">
+				pi_clothes_size = #{piClothesSize},
+			</if>
+			<if test = "piShoesSize != null and piShoesSize != ''">
+				pi_shoes_size = #{piShoesSize},
+			</if>
+			<if test = "piPrentice != null and piPrentice != ''">
+				pi_prentice = #{piPrentice},
+			</if>
+			<if test = "piCredentials != null and piCredentials != ''">
+				pi_credentials = #{piCredentials},
+			</if>
+			<if test = "piHonor != null and piHonor != ''">
+				pi_honor = #{piHonor},
+			</if>
+			<if test = "piPaper != null and piPaper != ''">
+				pi_paper = #{piPaper},
+			</if>
+			<if test = "piExtattr1 != null and piExtattr1 != ''">
+				pi_extattr1 = #{piExtattr1},
+			</if>
+			<if test = "piExtattr2 != null and piExtattr2 != ''">
+				pi_extattr2 = #{piExtattr2},
+			</if>
+			<if test = "piExtattr3 != null and piExtattr3 != ''">
+				pi_extattr3 = #{piExtattr3},
+			</if>
+		</set>
+		where pi_id = #{piId}
+	</update>
+	<!--通过主键删除-->
+	<delete id = "deleteById">
+		delete
+		from jckc.kc_personal_info
+		where pi_id = #{piId}
+	</delete>
 </mapper>

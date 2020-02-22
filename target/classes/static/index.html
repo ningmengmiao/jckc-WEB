@@ -1,257 +1,267 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta http-equiv="content-type" content="text/html;charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1.0, user-scalable=no">
+	
+	<meta http-equiv = "X-UA-Compatible" content = "IE=edge,chrome=1">
+	
+	<meta http-equiv = "Content-Type" content = "text/html; charset=utf-8" />
+	
+	<meta name = "viewport" content = "width=device-width, initial-scale=1.0 ,maximum-scale=1.0, user-scalable=no">
+	
+	<script src = "./dist/js/jquery-3.4.1.min.js"></script>
+	<script src = "./dist/js/bootstrap.min.js"></script>
+	<script src = "./dist/js/swiper.min.js"></script>
+	<script src = "./js/index.js"></script>
+	<script src = "https://g.alicdn.com/dingding/dingtalk-jsapi/2.7.13/dingtalk.open.js"></script>
 
-    <script src="./dist/js/jquery-3.4.1.min.js" ></script>
-    <script src="./dist/js/bootstrap.min.js"></script>
-    <script src="./dist/js/swiper.min.js"></script>
-    <script src="./js/index.js"></script>
-
-    <link rel="stylesheet" href="./dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./dist/css/swiper.min.css" />
-
-    <link rel="stylesheet" href="./css/index.css" />
-    <link rel="stylesheet" href="./css/mobile-adapter.css" />
-    <link rel="stylesheet" href="./css/reboot.css" />
-    <link rel="stylesheet" href="./css/common.css" />
-    <title> 精彩客车</title>
+ 
+	<link rel = "stylesheet" href = "./dist/css/bootstrap.min.css" />
+	<link rel = "stylesheet" href = "./dist/css/swiper.min.css" />
+	
+	<link rel = "stylesheet" href = "./css/index.css" />
+	<link rel = "stylesheet" href = "./css/mobile-adapter.css" />
+	<link rel = "stylesheet" href = "./css/reboot.css" />
+	<link rel = "stylesheet" href = "./css/common.css" />
+	<title> 精彩客车</title>
 </head>
 <body>
 
-<div class="page">
-<!--    page  S-->
-    <div class="content">
-        <!--head  S-->
-        <div class="header">
-
-            <a href="/" class="logo-a">
-                <div class="logo">精彩客车</div>
-            </a>
-            <div class="header-operate">
-                <a href="">
-                    <div class="header-msg"></div>
-                </a>
-                <a href="">
-                    <div class="header-user"></div>
-                </a>
-            </div>
-
-        </div>
-        <!-- head  E-->
-
-        <!--  轮播图　Ｓ-->
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide" style="background-color: #bce672"><div class="swiper-title"></div>Slide 1</div>
-                <div class="swiper-slide" style="background-color: #a4e2c6">Slide 2</div>
-                <div class="swiper-slide" style="background-color: #ffc773">Slide 3</div>
-                <div class="swiper-slide" style="background-color: #c0ebd7">Slide 4</div>
-            </div>
-            <!-- 如果需要分页器 -->
-            <div class="swiper-pagination"></div>
-        </div>
-        <!--  轮播图  E-->
-
-        <!--        栏目  S-->
-        <div class="column-content">
-            <a href="">
-                <div class="column">
-                    <div class="column-icon"></div>
-                    <div class="column-text">栏目</div>
-                </div>
-            </a>
-            <a href="">
-                <div class="column">
-                    <div class="column-icon"></div>
-                    <div class="column-text">栏目</div>
-                </div>
-            </a>
-            <a href="">
-                <div class="column">
-                    <div class="column-icon"></div>
-                    <div class="column-text">栏目</div>
-                </div>
-            </a>
-            <a href="">
-                <div class="column">
-                    <div class="column-icon"></div>
-                    <div class="column-text">栏目</div>
-                </div>
-            </a>
-            <a href="">
-                <div class="column">
-                    <div class="column-icon"></div>
-                    <div class="column-text">栏目</div>
-                </div>
-            </a>
-
-        </div>
-        <!--    栏目  E-->
-
-        <!--        新闻导航  S -->
-
-        <nav class="nav-main" id="nav">
-            <div class="nav-selected" id="nav1">新闻</div>
-            <div class="nav" id="nav2">信息</div>
-            <div class="nav" id="nav3">通告</div>
-            <div class="nav" id="nav4">交流</div>
-            <div class="nav" id="nav5">热点</div>
-
-        </nav>
-        <!--        新闻导航   E-->
-
-        <!--        新闻列表  S-->
-        <div class="news-main" id="news1">
-            <div class="news-top">
-                <div class="text">中心要闻</div>
-                <div class="more">
-                    更多
-                </div>
-            </div>
-            <div class="news">
-                <div class="img" hidden></div>
-                <div class="new-a">
-                    <div class="title">
-                        部分元素自适应大小，某个元素填充剩余空间 某个元素填充剩余空间 部分元素自适应大小
-                    </div>
-                    <div class="body">
-
-                    </div>
-                    <div class="news-suffix">
-                        <div class="author">装调车间装调</div>
-                        <div class="time">02-02 13:03</div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-        <div class="news-main" id="news2">
-            <div class="news-top">
-                <div class="text">通知通告</div>
-                <div class="more">
-                    更多
-                </div>
-            </div>
-            <div class="news">
-                <div class="img"></div>
-                <div class="new-a">
-                    <div class="title">
-                        部分元素自适应大小，某个元素填充剩余空间部分元素自适应大小，某个元素填充剩余空间
-                    </div>
-                    <div class="body">
-
-                    </div>
-                    <div class="news-suffix">
-                        <div class="author">装调车间装调</div>
-                        <div class="time">02-02 13:03</div>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-        <div class="news-main" id="news3">
-            <div class="news-top">
-                <div class="text">信息简报</div>
-                <div class="more">
-                    更多
-                </div>
-            </div>
-            <div class="news">
-                <div class="img"></div>
-                <div class="new-a">
-                    <div class="title">
-                        部分元素自适应大小，某个元素填充剩余空间
-                    </div>
-                    <div class="body">
-
-                    </div>
-                    <div class="news-suffix">
-                        <div class="author">装调车间装调</div>
-                        <div class="time">02-02 13:03</div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-        <div class="news-main" id="news4">
-            <div class="news-top">
-                <div class="text">经验交流</div>
-                <div class="more">
-                    更多
-                </div>
-            </div>
-            <div class="news">
-                <div class="img"></div>
-                <div class="new-a">
-                    <div class="title">
-                        部分元素自适应大小，某个元素填充剩余空间
-                    </div>
-                    <div class="body">
-
-                    </div>
-                    <div class="news-suffix">
-                        <div class="author">装调车间装调</div>
-                        <div class="time">02-02 13:03</div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-        <div class="news-main" id="news5">
-            <div class="news-top">
-                <div class="text">热点新闻</div>
-                <div class="more">
-                    更多
-                </div>
-            </div>
-            <div class="news">
-                <div class="img"></div>
-                <div class="new-a">
-                    <div class="title">
-                        部分元素自适应大小，某个元素填充剩余空间
-                    </div>
-                    <div class="body">
-
-                    </div>
-                    <div class="news-suffix">
-                        <div class="author">装调车间装调</div>
-                        <div class="time">02-02 13:03</div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-        <!--        新闻列表   E-->
-    </div>
-    <!--page  E-->
-    <!--swiper 轮播图配置-->
+<div class = "page">
+	<!--    page  S-->
+	<div class = "content">
+		<!--head  S-->
+		<div class = "header">
+			
+			<a href = "/" class = "logo-a">
+				<div class = "logo">精彩客车</div>
+			</a>
+			<div class = "header-operate">
+				<a href = "">
+					<div class = "header-msg"></div>
+				</a>
+				<a href = "">
+					<div class = "header-user"></div>
+				</a>
+			</div>
+		
+		</div>
+		<!-- head  E-->
+		
+		<!--  轮播图　Ｓ-->
+		<div class = "swiper-container">
+			<div class = "swiper-wrapper">
+				<div class = "swiper-slide" style = "background-color: #bce672">
+					<div class = "swiper-title">新闻标题新闻标题新闻标题新闻标题</div>
+					Slide 1
+				</div>
+				<div class = "swiper-slide" style = "background-color: #a4e2c6">Slide 2</div>
+				<div class = "swiper-slide" style = "background-color: #ffc773">Slide 3</div>
+				<div class = "swiper-slide" style = "background-color: #c0ebd7">Slide 4</div>
+			</div>
+			<!-- 如果需要分页器 -->
+			<div class = "swiper-pagination"></div>
+		</div>
+		<!--  轮播图  E-->
+		
+		<!--        栏目  S-->
+		<div class = "column-content">
+			<a href = "">
+				<div class = "column">
+					<div class = "column-icon"></div>
+					<div class = "column-text">车间简介</div>
+				</div>
+			</a>
+			<a href = "">
+				<div class = "column">
+					<div class = "column-icon"></div>
+					<div class = "column-text">数字管理</div>
+				</div>
+			</a>
+			<a href = "">
+				<div class = "column">
+					<div class = "column-icon"></div>
+					<div class = "column-text">痕迹管理</div>
+				</div>
+			</a>
+			<a href = "">
+				<div class = "column">
+					<div class = "column-icon"></div>
+					<div class = "column-text">经验交流</div>
+				</div>
+			</a>
+			<a href = "">
+				<div class = "column">
+					<div class = "column-icon"></div>
+					<div class = "column-text">为您服务</div>
+				</div>
+			</a>
+		
+		</div>
+		<!--    栏目  E-->
+		
+		<!--        新闻导航  S -->
+		
+		<nav class = "nav-main" id = "nav">
+			<div class = "nav nav-selected" id = "nav1">文件</div>
+			<div class = "nav" id = "nav2">要闻</div>
+			<div class = "nav" id = "nav3">通知</div>
+			<div class = "nav" id = "nav4">消息</div>
+			<div class = "nav" id = "nav5">热点</div>
+		
+		</nav>
+		<!--        新闻导航   E-->
+		
+		<!--        新闻列表  S-->
+		<div class = "news-main" id = "news1">
+			<div class = "news-top">
+				<div class = "text">车间文件</div>
+				<div class = "more">
+					更多
+				</div>
+			</div>
+			<div class = "news">
+				<div class = "img" hidden></div>
+				<div class = "new-a">
+					<div class = "title">
+						部分元素自适应大小，某个元素填充剩余空间 某个元素填充剩余空间 部分元素自适应大小
+					</div>
+					<div class = "body">
+					
+					</div>
+					<div class = "news-suffix">
+						<div class = "author">装调车间装调</div>
+						<div class = "time">02-02 13:03</div>
+					</div>
+				</div>
+			
+			</div>
+		
+		</div>
+		<div class = "news-main" id = "news2">
+			<div class = "news-top">
+				<div class = "text">车间要闻</div>
+				<div class = "more">
+					更多
+				</div>
+			</div>
+			<div class = "news">
+				<div class = "img"></div>
+				<div class = "new-a">
+					<div class = "title">
+						部分元素自适应大小，某个元素填充剩余空间部分元素自适应大小，某个元素填充剩余空间
+					</div>
+					<div class = "body">
+					
+					</div>
+					<div class = "news-suffix">
+						<div class = "author">装调车间装调</div>
+						<div class = "time">02-02 13:03</div>
+					</div>
+				
+				</div>
+			
+			</div>
+		
+		</div>
+		<div class = "news-main" id = "news3">
+			<div class = "news-top">
+				<div class = "text">通知通告</div>
+				<div class = "more">
+					更多
+				</div>
+			</div>
+			<div class = "news">
+				<div class = "img"></div>
+				<div class = "new-a">
+					<div class = "title">
+						部分元素自适应大小，某个元素填充剩余空间
+					</div>
+					<div class = "body">
+					
+					</div>
+					<div class = "news-suffix">
+						<div class = "author">装调车间装调</div>
+						<div class = "time">02-02 13:03</div>
+					</div>
+				</div>
+			
+			</div>
+		
+		</div>
+		<div class = "news-main" id = "news4">
+			<div class = "news-top">
+				<div class = "text">信息简报</div>
+				<div class = "more">
+					更多
+				</div>
+			</div>
+			<div class = "news">
+				<div class = "img"></div>
+				<div class = "new-a">
+					<div class = "title">
+						部分元素自适应大小，某个元素填充剩余空间
+					</div>
+					<div class = "body">
+					
+					</div>
+					<div class = "news-suffix">
+						<div class = "author">装调车间装调</div>
+						<div class = "time">02-02 13:03</div>
+					</div>
+				</div>
+			
+			</div>
+		
+		</div>
+		<div class = "news-main" id = "news5">
+			<div class = "news-top">
+				<div class = "text">热点新闻</div>
+				<div class = "more">
+					更多
+				</div>
+			</div>
+			<div class = "news">
+				<div class = "img"></div>
+				<div class = "new-a">
+					<div class = "title">
+						部分元素自适应大小，某个元素填充剩余空间
+					</div>
+					<div class = "body">
+					
+					</div>
+					<div class = "news-suffix">
+						<div class = "author">装调车间装调</div>
+						<div class = "time">02-02 13:03</div>
+					</div>
+				</div>
+			
+			</div>
+		
+		</div>
+		
+		<!--        新闻列表   E-->
+	</div>
+	<!--page  E-->
+	<!--swiper 轮播图配置-->
+	
+	<div>
+		<iframe align = "center" width = "100%" height = "170" src = "html/login.html" frameborder = "no" border = "0" marginwidth = "0" marginheight = "0" scrolling = "no"></iframe>
+	
+	</div>
 </div>
 
 <script>
-    var mySwiper = new Swiper('.swiper-container', {
-
-        loop: true, // 循环模式选项
-        spend: 1800,
-        autoplay: {
-            delay: 3000
-        },
-        // 如果需要分页器
-        pagination: {
-            el: '.swiper-pagination',
-        },
-
-
-    })
+	var mySwiper = new Swiper('.swiper-container', {
+		loop: true, // 循环模式选项
+		spend: 1800,
+		autoplay: {
+			delay: 3000
+		},
+		// 如果需要分页器
+		pagination: {
+			el: '.swiper-pagination',
+		},
+	})
 </script>
 </body>
 </html>

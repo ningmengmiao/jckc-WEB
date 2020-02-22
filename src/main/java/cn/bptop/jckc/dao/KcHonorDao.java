@@ -1,7 +1,9 @@
 package cn.bptop.jckc.dao;
 
 import cn.bptop.jckc.entity.KcHonor;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -11,6 +13,8 @@ import java.util.List;
  * @author makejava
  * @since 2020-02-17 15:58:42
  */
+@Mapper
+@Repository
 public interface KcHonorDao
 {
 

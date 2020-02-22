@@ -74,10 +74,13 @@
     text-align: center;
     line-height: 10rem;
 }
-.swiper-title{
+
+.swiper-title {
     position: absolute;
-    bottom: 0;
+    bottom: 1rem;
     height: 1rem;
+    font-size: 1rem;
+    color: #1b1e21;
     width: 100%;
     background-color: #dddddd;
 }
@@ -106,7 +109,7 @@
 
 .column-text {
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: #777777;
     font-weight: 600;
 }
@@ -172,7 +175,7 @@
 .news-top .text {
     display: inline-block;
     margin-left: 1rem;
-    font-size: 1.2rem;
+    font-size:1.1rem;
     font-weight: 500;
     color: #161823;
 }
@@ -216,11 +219,11 @@
 
 .news .new-a {
     display: flex;
-      flex-direction: column;
+    flex-direction: column;
     justify-content: space-between;
-   min-height: 100%;
+    min-height: 100%;
     flex: 3;
-    padding:0 0.5rem;
+    padding-left: 0.5rem;
     vertical-align: bottom;
 }
 
@@ -230,13 +233,15 @@
     font-weight: 500;
     font-size: 1rem;
     color: #1b1e21;
-    
+
 }
-   .news .news-suffix{
-       display: flex;
-       flex-direction: row;
-       justify-content: space-between;
-   }
+
+.news .news-suffix {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .news .author {
     display: -webkit-flex; /* Safari */
     display: flex;

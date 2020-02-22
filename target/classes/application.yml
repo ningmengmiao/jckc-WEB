@@ -5,7 +5,12 @@ spring:
       static-locations:
         file: C:/file/
 
-  datasourcemaxpo
+
+  http:
+    encoding:
+      force: true
+      charset: utf-8
+      enabled: true
 
 
 
@@ -16,4 +21,6 @@ logging:
 
 
 
-
+server:
+  tomcat:
+    uri-encoding: utf-8

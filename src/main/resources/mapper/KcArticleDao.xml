@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "cn.bptop.jckc.dao.KcArticleDao">
+	<resultMap type = "cn.bptop.jckc.entity.KcArticle" id = "KcArticleMap">
+		<result property = "aArticleId" column = "a_article_id" jdbcType = "INTEGER"/>
+		<result property = "aAuthor" column = "a_author" jdbcType = "VARCHAR"/>
+		<result property = "aPublishTime" column = "a_publish_time" jdbcType = "VARCHAR"/>
+		<result property = "aPublishDepartment" column = "a_publish_department" jdbcType = "VARCHAR"/>
+		<result property = "userId" column = "user_id" jdbcType = "INTEGER"/>
+		<result property = "aClassify" column = "a_classify" jdbcType = "VARCHAR"/>
+		<result property = "aContent" column = "a_content" jdbcType = "VARCHAR"/>
+	</resultMap>
+	<!--查询单个-->
+	<select id = "queryById" resultMap = "KcArticleMap">
+		select a_article_id,
+		       a_author,
+		       a_publish_time,
+		       a_publish_department,
+		       user_id,
+		       a_classify,
+		       a_content
+		from jckc.kc_article
+		where a_article_id = #{aArticleId}
+	</select>
+	<!--查询指定行数据-->
+	<select id = "queryAllByLimit" resultMap = "KcArticleMap">
+		select a_article_id,
+		       a_author,
+		       a_publish_time,
+		       a_publish_department,
+		       user_id,
+		       a_classify,
+		       a_content
+		from jckc.kc_article
+		limit #{offset}, #{limit}
+	</select>
+	<!--通过实体作为筛选条件查询-->
+	<select id = "queryAll" resultMap = "KcArticleMap">
+		select
+		a_article_id, a_author, a_publish_time, a_publish_department, user_id, a_classify, a_content
+		from jckc.kc_article
+		<where>
+			<if test = "aArticleId != null">
+				and a_article_id = #{aArticleId}
+			</if>
+			<if test = "aAuthor != null and aAuthor != ''">
+				and a_author = #{aAuthor}
+			</if>
+			<if test = "aPublishTime != null and aPublishTime != ''">
+				and a_publish_time = #{aPublishTime}
+			</if>
+			<if test = "aPublishDepartment != null and aPublishDepartment != ''">
+				and a_publish_department = #{aPublishDepartment}
+			</if>
+			<if test = "userId != null">
+				and user_id = #{userId}
+			</if>
+			<if test = "aClassify != null and aClassify != ''">
+				and a_classify = #{aClassify}
+			</if>
+			<if test = "aContent != null and aContent != ''">
+				and a_content = #{aContent}
+			</if>
+		</where>
+	</select>
+	<!--新增所有列-->
+	<insert id = "insert" keyProperty = "aArticleId" useGeneratedKeys = "true">
+		insert into jckc.kc_article(a_author, a_publish_time, a_publish_department, user_id, a_classify, a_content)
+		values (#{aAuthor}, #{aPublishTime}, #{aPublishDepartment}, #{userId}, #{aClassify}, #{aContent})
+	</insert>
+	<!--通过主键修改数据-->
+	<update id = "update">
+		update jckc.kc_article
+		<set>
+			<if test = "aAuthor != null and aAuthor != ''">
+				a_author = #{aAuthor},
+			</if>
+			<if test = "aPublishTime != null and aPublishTime != ''">
+				a_publish_time = #{aPublishTime},
+			</if>
+			<if test = "aPublishDepartment != null and aPublishDepartment != ''">
+				a_publish_department = #{aPublishDepartment},
+			</if>
+			<if test = "userId != null">
+				user_id = #{userId},
+			</if>
+			<if test = "aClassify != null and aClassify != ''">
+				a_classify = #{aClassify},
+			</if>
+			<if test = "aContent != null and aContent != ''">
+				a_content = #{aContent},
+			</if>
+		</set>
+		where a_article_id = #{aArticleId}
+	</update>
+	<!--通过主键删除-->
+	<delete id = "deleteById">
+		delete
+		from jckc.kc_article
+		where a_article_id = #{aArticleId}
+	</delete>
+</mapper>

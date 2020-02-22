@@ -6,13 +6,29 @@ import java.io.Serializable;
  * (KcUser)实体类
  *
  * @author makejava
- * @since 2020-02-17 15:58:40
+ * @since 2020-02-20 10:40:55
  */
 public class KcUser implements Serializable
 {
-    private static final long serialVersionUID = 852623374887729725L;
+    private static final long serialVersionUID = -28623071865271374L;
 
     private Integer userId;
+
+    public KcUser()
+    {
+        super();
+        this.uFn = "";
+        this.uDdid = "";
+        this.uName = "";
+        this.uMobile = "";
+        this.uPassword = "";
+        this.uEmail = "";
+        this.uStartWork = "";
+        this.uAvatar = "";
+        this.uNote = "";
+        this.uExtattr1 = "";
+    }
+
     /**
      * 档案号
      */
@@ -29,6 +45,10 @@ public class KcUser implements Serializable
      * 手机号
      */
     private String uMobile;
+    /**
+     * 密码
+     */
+    private String uPassword;
     /**
      * 邮箱
      */
@@ -100,6 +120,16 @@ public class KcUser implements Serializable
         this.uMobile = uMobile;
     }
 
+    public String getUPassword()
+    {
+        return uPassword;
+    }
+
+    public void setUPassword(String uPassword)
+    {
+        this.uPassword = uPassword;
+    }
+
     public String getUEmail()
     {
         return uEmail;
@@ -149,4 +179,5 @@ public class KcUser implements Serializable
     {
         this.uExtattr1 = uExtattr1;
     }
+
 }
