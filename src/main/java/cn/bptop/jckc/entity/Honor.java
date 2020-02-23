@@ -8,7 +8,7 @@ import java.io.Serializable;
  * @author makejava
  * @since 2020-02-17 15:58:42
  */
-public class KcHonor implements Serializable
+public class Honor implements Serializable
 {
     private static final long serialVersionUID = -72759712680993122L;
     /**

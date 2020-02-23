@@ -1,6 +1,6 @@
 package cn.bptop.jckc.dao;
 
-import cn.bptop.jckc.entity.KcPersonalInfo;
+import cn.bptop.jckc.entity.Article;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -8,23 +8,23 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * (KcPersonalInfo)表数据库访问层
+ * (KcArticle)表数据库访问层
  *
  * @author makejava
- * @since 2020-02-17 15:58:42
+ * @since 2020-02-22 19:04:26
  */
-@Mapper
 @Repository
-public interface KcPersonalInfoDao
+@Mapper
+public interface ArticleDao
 {
 
     /**
      * 通过ID查询单条数据
      *
-     * @param piId 主键
+     * @param aArticleId 主键
      * @return 实例对象
      */
-    KcPersonalInfo queryById(Integer piId);
+    Article queryById(Integer aArticleId);
 
     /**
      * 查询指定行数据
@@ -33,37 +33,38 @@ public interface KcPersonalInfoDao
      * @param limit  查询条数
      * @return 对象列表
      */
-    List<KcPersonalInfo> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
+    List<Article> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
 
     /**
      * 通过实体作为筛选条件查询
      *
-     * @param kcPersonalInfo 实例对象
+     * @param article 实例对象
      * @return 对象列表
      */
-    List<KcPersonalInfo> queryAll(KcPersonalInfo kcPersonalInfo);
+    List<Article> queryAll(@Param("article") Article article, @Param("offset") int offset, @Param("limit") int limit);
 
     /**
      * 新增数据
      *
-     * @param kcPersonalInfo 实例对象
+     * @param article 实例对象
      * @return 影响行数
      */
-    int insert(KcPersonalInfo kcPersonalInfo);
+    int insert(Article article);
 
     /**
      * 修改数据
      *
-     * @param kcPersonalInfo 实例对象
+     * @param article 实例对象
      * @return 影响行数
      */
-    int update(KcPersonalInfo kcPersonalInfo);
+    int update(Article article);
 
     /**
      * 通过主键删除数据
      *
-     * @param piId 主键
+     * @param aArticleId 主键
      * @return 影响行数
      */
-    int deleteById(Integer piId);
+    int deleteById(Integer aArticleId);
+
 }

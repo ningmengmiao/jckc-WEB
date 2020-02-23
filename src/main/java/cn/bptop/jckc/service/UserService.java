@@ -1,9 +1,9 @@
 package cn.bptop.jckc.service;
 
-import cn.bptop.jckc.dao.KcPersonalInfoDao;
-import cn.bptop.jckc.dao.KcUserDao;
-import cn.bptop.jckc.entity.KcPersonalInfo;
-import cn.bptop.jckc.entity.KcUser;
+import cn.bptop.jckc.dao.PersonalInfoDao;
+import cn.bptop.jckc.dao.UserDao;
+import cn.bptop.jckc.entity.PersonalInfo;
+import cn.bptop.jckc.entity.User;
 import cn.bptop.jckc.until.Ding;
 import com.dingtalk.api.response.OapiUserGetResponse;
 import com.taobao.api.ApiException;
@@ -16,9 +16,9 @@ import java.util.List;
 public class UserService
 {
     @Autowired
-    KcUserDao kcUserDao;
+    UserDao userDao;
     @Autowired
-    KcPersonalInfoDao kcPersonalInfoDao;
+    PersonalInfoDao personalInfoDao;
 
     /**
      * 通过钉钉免登查询用户是否存在,有返回用户信息,无新建后返回
@@ -27,9 +27,9 @@ public class UserService
      * @return: 用户信息VO类
      * @time: 2020/2/22 15:36
      */
-    public cn.bptop.jckc.entity.UserPersonalVO isUser(KcUser user) throws ApiException
+    public cn.bptop.jckc.entity.UserPersonalVO isUser(User user) throws ApiException
     {
-        List<KcUser> users = kcUserDao.queryAll(user);
+        List<User> users = userDao.queryAll(user);
         if (users.size() == 0)
         {
             OapiUserGetResponse ddUser = Ding.getDdUser(user.getUDdid());
@@ -53,15 +53,15 @@ public class UserService
             {
                 user.setUStartWork(ddUser.getHiredDate().toString());
             }
-            Integer userId = kcUserDao.insert(user);
-            KcPersonalInfo kcPersonalInfo = new KcPersonalInfo();
-            kcPersonalInfo.setUUserId(userId);
-            kcPersonalInfoDao.insert(kcPersonalInfo);
-            return kcUserDao.queryUserPersonalById(userId);
+            Integer userId = userDao.insert(user);
+            PersonalInfo personalInfo = new PersonalInfo();
+            personalInfo.setUUserId(userId);
+            personalInfoDao.insert(personalInfo);
+            return userDao.queryUserPersonalById(userId);
         }
         else
         {
-            return kcUserDao.queryUserPersonalById(users.get(0).getUserId());
+            return userDao.queryUserPersonalById(users.get(0).getUserId());
         }
     }
 }

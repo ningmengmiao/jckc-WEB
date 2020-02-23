@@ -2,26 +2,26 @@ package cn.bptop.jckc.entity;
 
 public class UserPersonalVO
 {
-    private KcUser kcUser;
-    private KcPersonalInfo kcPersonalInfo;
+    private User user;
+    private PersonalInfo personalInfo;
 
-    public KcUser getKcUser()
+    public User getUser()
     {
-        return kcUser;
+        return user;
     }
 
-    public void setKcUser(KcUser kcUser)
+    public void setUser(User user)
     {
-        this.kcUser = kcUser;
+        this.user = user;
     }
 
-    public KcPersonalInfo getKcPersonalInfo()
+    public PersonalInfo getPersonalInfo()
     {
-        return kcPersonalInfo;
+        return personalInfo;
     }
 
-    public void setKcPersonalInfo(KcPersonalInfo kcPersonalInfo)
+    public void setPersonalInfo(PersonalInfo personalInfo)
     {
-        this.kcPersonalInfo = kcPersonalInfo;
+        this.personalInfo = personalInfo;
     }
 }

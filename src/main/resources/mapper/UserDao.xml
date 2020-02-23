@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace = "cn.bptop.jckc.dao.KcUserDao">
-	<resultMap type = "cn.bptop.jckc.entity.KcUser" id = "KcUserMap">
+<mapper namespace = "cn.bptop.jckc.dao.UserDao">
+	<resultMap type = "cn.bptop.jckc.entity.User" id = "UserMap">
 		<result property = "userId" column = "user_id" jdbcType = "INTEGER"/>
 		<result property = "uFn" column = "u_FN" jdbcType = "VARCHAR"/>
 		<result property = "uDdid" column = "u_ddId" jdbcType = "VARCHAR"/>
@@ -15,11 +15,11 @@
 		<result property = "uExtattr1" column = "u_extattr1" jdbcType = "VARCHAR"/>
 	</resultMap>
 	<resultMap id = "UserPersonalMap" type = "cn.bptop.jckc.entity.UserPersonalVO">
-		<association property = "kcUser" resultMap = "KcUserMap"/>
-		<association property = "kcPersonalInfo" resultMap = "cn.bptop.jckc.dao.KcPersonalInfoDao.KcPersonalInfoMap"/>
+		<association property = "user" resultMap = "UserMap"/>
+		<association property = "personalInfo" resultMap = "cn.bptop.jckc.dao.PersonalInfoDao.PersonalInfoMap"/>
 	</resultMap>
 	<!--查询单个-->
-	<select id = "queryById" resultMap = "KcUserMap">
+	<select id = "queryById" resultMap = "UserMap">
 		select user_id,
 		       u_FN,
 		       u_ddId,
@@ -42,7 +42,7 @@
 		where u.user_id = #{userId}
 	</select>
 	<!--查询指定行数据-->
-	<select id = "queryAllByLimit" resultMap = "KcUserMap">
+	<select id = "queryAllByLimit" resultMap = "UserMap">
 		select user_id,
 		       u_FN,
 		       u_ddId,
@@ -58,7 +58,7 @@
 		limit #{offset}, #{limit}
 	</select>
 	<!--通过实体作为筛选条件查询-->
-	<select id = "queryAll" resultMap = "KcUserMap">
+	<select id = "queryAll" resultMap = "UserMap">
 		select
 		user_id, u_FN, u_ddId, u_name, u_mobile, u_password, u_email, u_start_work, u_avatar, u_note, u_extattr1
 		from jckc.kc_user

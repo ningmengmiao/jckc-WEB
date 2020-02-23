@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "cn.bptop.jckc.dao.FileDao">
+	<resultMap type = "cn.bptop.jckc.entity.File" id = "FileMap">
+		<result property = "fFileId" column = "f_file_id" jdbcType = "INTEGER"/>
+		<result property = "fName" column = "f_name" jdbcType = "VARCHAR"/>
+		<result property = "fAddress" column = "f_address" jdbcType = "VARCHAR"/>
+		<result property = "aArticleId" column = "a_article_id" jdbcType = "INTEGER"/>
+		<result property = "fType" column = "f_type" jdbcType = "VARCHAR"/>
+	</resultMap>
+	<!--查询单个-->
+	<select id = "queryById" resultMap = "FileMap">
+		select f_file_id,
+		       f_name,
+		       f_address,
+		       a_article_id,
+		       f_type
+		from jckc.kc_file
+		where f_file_id = #{fFileId}
+	</select>
+	<!--查询指定行数据-->
+	<select id = "queryAllByLimit" resultMap = "FileMap">
+		select f_file_id,
+		       f_name,
+		       f_address,
+		       a_article_id,
+		       f_type
+		from jckc.kc_file
+		limit #{offset}, #{limit}
+	</select>
+	<!--通过实体作为筛选条件查询-->
+	<select id = "queryAll" resultMap = "FileMap">
+		select
+		f_file_id, f_name, f_address, a_article_id, f_type
+		from jckc.kc_file
+		<where>
+			<if test = "file.fFileId != null">
+				and f_file_id = #{file.fFileId}
+			</if>
+			<if test = "file.fName != null and file.fName != ''">
+				and f_name = #{file.fName}
+			</if>
+			<if test = "file.fAddress != null and file.fAddress != ''">
+				and f_address = #{file.fAddress}
+			</if>
+			<if test = "file.aArticleId != null">
+				and a_article_id = #{file.aArticleId}
+			</if>
+			<if test = "file.fType != null and file.fType != ''">
+				and f_type = #{file.fType}
+			</if>
+		</where>
+		limit #{offset}, #{limit}
+	</select>
+	<!--新增所有列-->
+	<insert id = "insert" keyProperty = "fFileId" useGeneratedKeys = "true">
+		insert into jckc.kc_file(f_name, f_address, a_article_id, f_type)
+		values (#{fName}, #{fAddress}, #{aArticleId}, #{fType})
+	</insert>
+	<!--通过主键修改数据-->
+	<update id = "update">
+		update jckc.kc_file
+		<set>
+			<if test = "fName != null and fName != ''">
+				f_name = #{fName},
+			</if>
+			<if test = "fAddress != null and fAddress != ''">
+				f_address = #{fAddress},
+			</if>
+			<if test = "aArticleId != null">
+				a_article_id = #{aArticleId},
+			</if>
+			<if test = "fType != null and fType != ''">
+				f_type = #{fType},
+			</if>
+		</set>
+		where f_file_id = #{fFileId}
+	</update>
+	<!--通过主键删除-->
+	<delete id = "deleteById">
+		delete
+		from jckc.kc_file
+		where f_file_id = #{fFileId}
+	</delete>
+</mapper>

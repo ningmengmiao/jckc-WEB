@@ -8,13 +8,11 @@ import java.io.Serializable;
  * @author makejava
  * @since 2020-02-20 10:40:55
  */
-public class KcUser implements Serializable
+public class User implements Serializable
 {
     private static final long serialVersionUID = -28623071865271374L;
 
-    private Integer userId;
-
-    public KcUser()
+    public User()
     {
         super();
         this.uFn = "";
@@ -28,6 +26,8 @@ public class KcUser implements Serializable
         this.uNote = "";
         this.uExtattr1 = "";
     }
+
+    private Integer userId;
 
     /**
      * 档案号

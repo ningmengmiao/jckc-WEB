@@ -6,11 +6,12 @@ import java.io.Serializable;
  * (KcArticle)实体类
  *
  * @author makejava
- * @since 2020-02-20 10:42:43
+ * @since 2020-02-22 19:04:24
  */
-public class KcArticle implements Serializable
+public class Article implements Serializable
 {
-    private static final long serialVersionUID = 467448255597708991L;
+    private static final long serialVersionUID = -50385780930905895L;
+
     /**
      * 文章id
      */
@@ -109,4 +110,5 @@ public class KcArticle implements Serializable
     {
         this.aContent = aContent;
     }
+
 }

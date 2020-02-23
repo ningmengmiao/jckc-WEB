@@ -1,6 +1,6 @@
 package cn.bptop.jckc.dao;
 
-import cn.bptop.jckc.entity.KcUser;
+import cn.bptop.jckc.entity.User;
 import cn.bptop.jckc.entity.UserPersonalVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -16,7 +16,7 @@ import java.util.List;
  */
 @Mapper
 @Repository
-public interface KcUserDao
+public interface UserDao
 {
 
     /**
@@ -25,7 +25,7 @@ public interface KcUserDao
      * @param userId 主键
      * @return 实例对象
      */
-    KcUser queryById(Integer userId);
+    User queryById(Integer userId);
 
     /**
      * 通过Id查询用户表及用户信息数据
@@ -43,32 +43,31 @@ public interface KcUserDao
      * @param limit  查询条数
      * @return 对象列表
      */
-    List<KcUser> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
-
+    List<User> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
 
     /**
      * 通过实体作为筛选条件查询
      *
-     * @param kcUser 实例对象
+     * @param user 实例对象
      * @return 对象列表
      */
-    List<KcUser> queryAll(KcUser kcUser);
+    List<User> queryAll(User user);
 
     /**
      * 新增数据
      *
-     * @param kcUser 实例对象
+     * @param user 实例对象
      * @return 主键
      */
-    int insert(KcUser kcUser);
+    int insert(User user);
 
     /**
      * 修改数据
      *
-     * @param kcUser 实例对象
+     * @param user 实例对象
      * @return 影响行数
      */
-    int update(KcUser kcUser);
+    int update(User user);
 
     /**
      * 通过主键删除数据

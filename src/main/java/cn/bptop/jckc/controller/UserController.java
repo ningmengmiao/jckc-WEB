@@ -1,6 +1,6 @@
 package cn.bptop.jckc.controller;
 
-import cn.bptop.jckc.entity.KcUser;
+import cn.bptop.jckc.entity.User;
 import cn.bptop.jckc.service.UserService;
 import cn.bptop.jckc.until.Ding;
 import cn.bptop.jckc.until.Json;
@@ -29,8 +29,8 @@ public class UserController
     public String ddLogin(String code) throws ApiException
     {
         String ddUserId = Ding.getDdUserId(code);
-        KcUser kcUser = new KcUser();
-        kcUser.setUDdid(ddUserId);
-        return Json.toJson(userService.isUser(kcUser));
+        User user = new User();
+        user.setUDdid(ddUserId);
+        return Json.toJson(userService.isUser(user));
     }
 }

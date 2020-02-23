@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace = "cn.bptop.jckc.dao.KcHonorDao">
-	<resultMap type = "cn.bptop.jckc.entity.KcHonor" id = "KcHonorMap">
+<mapper namespace = "cn.bptop.jckc.dao.HonorDao">
+	<resultMap type = "cn.bptop.jckc.entity.Honor" id = "HonorMap">
 		<result property = "hHonorId" column = "h_honor_id" jdbcType = "INTEGER"/>
 		<result property = "hHonorName" column = "h_honor_name" jdbcType = "VARCHAR"/>
 		<result property = "hHonorLevel" column = "h_honor_level" jdbcType = "VARCHAR"/>
 		<result property = "hHonorType" column = "h_honor_type" jdbcType = "VARCHAR"/>
 	</resultMap>
 	<!--查询单个-->
-	<select id = "queryById" resultMap = "KcHonorMap">
+	<select id = "queryById" resultMap = "HonorMap">
 		select h_honor_id,
 		       h_honor_name,
 		       h_honor_level,
@@ -17,7 +17,7 @@
 		where h_honor_id = #{hHonorId}
 	</select>
 	<!--查询指定行数据-->
-	<select id = "queryAllByLimit" resultMap = "KcHonorMap">
+	<select id = "queryAllByLimit" resultMap = "HonorMap">
 		select h_honor_id,
 		       h_honor_name,
 		       h_honor_level,
@@ -26,7 +26,7 @@
 		limit #{offset}, #{limit}
 	</select>
 	<!--通过实体作为筛选条件查询-->
-	<select id = "queryAll" resultMap = "KcHonorMap">
+	<select id = "queryAll" resultMap = "HonorMap">
 		select
 		h_honor_id, h_honor_name, h_honor_level, h_honor_type
 		from jckc.kc_honor

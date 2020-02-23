@@ -1,6 +1,8 @@
 document.write("<script src='./js/profile.js'></script>");
 var navTop;
+
 window.onload = function () {
+
 	// 钉钉免登
 	dd.ready(function () {
 		dd.runtime.permission.requestAuthCode({
@@ -12,7 +14,9 @@ window.onload = function () {
 						code: result.code,
 					},
 					success: function (result) {
-						localStorage.user = JSON.stringify(JSON.parse(result).kcUser);
+						if (localStorage !== JSON.stringify(JSON.parse(result).kcUser)) {
+							localStorage.user = JSON.stringify(JSON.parse(result).kcUser);
+						}
 					}
 				});
 			},
@@ -21,9 +25,13 @@ window.onload = function () {
 			}
 		});
 	});
-	dd.error(function (error) {
-		alert('dd error: ' + JSON.stringify(error));
-	});
+	//加载首页新闻
+	$.ajax({
+		url: ENV.domain + "/index/articleList",
+		success: function (res) {
+			window.list = res;
+		}
+	})
 	// 获取nav高度
 	navTop = $('#nav').offset().top;
 	// 点击nav滚动页面
@@ -66,6 +74,7 @@ window.addEventListener('scroll', function () {
 		$('#news1').css({"margin-top": 8})
 	}
 });
-
-
-
+new Vue({
+	el: '#news1',
+	data: window.list
+});
